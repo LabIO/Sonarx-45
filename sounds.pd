@@ -1,4 +1,4 @@
-#N canvas 1627 443 1064 566 10;
+#N canvas 114 292 1064 566 10;
 #X obj 689 -3154 cnv 15 350 200 empty empty empty 20 12 0 14 -204786
 -66577 0;
 #X obj 500 -3201 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
@@ -10,7 +10,7 @@
 #X obj 500 -3235 line;
 #X obj 494 -3296 sel 0;
 #X msg 480 -3273 0 500;
-#N canvas 92 96 450 300 tik 0;
+#N canvas 93 95 450 300 tik 0;
 #X obj 189 11 r 0cross;
 #X obj 123 241 throw~ L;
 #X obj 185 239 throw~ R;
@@ -243,7 +243,7 @@
 -1 -1;
 #X text 705 -3124 reset functionVH;
 #X obj 541 -3220 r V;
-#N canvas 130 262 805 493 sound&tables 0;
+#N canvas 132 260 805 493 sound&tables 0;
 #X obj -120 -232 table midi4th_scale;
 #X msg 163 -110 \; midi4th_scale 0 1 6 11 16 21 26 31 36 41 46 51 56
 61 66 71 76 81 86 91 96 101 106 111 116;
@@ -380,8 +380,9 @@
 #X msg 352 -3071 135;
 #X msg 400 -3063 0;
 #X obj 361 -3101 loadbang;
-#N canvas 374 227 600 531 VOICES 1;
+#N canvas 378 223 600 531 VOICES 1;
 #X obj 15 -3391 playHSVpan 0 -45;
+#X obj 337 -3124 playHSVpan 38 32.7727;
 #X obj 15 -3361 playHSVpan 1 -42.9545;
 #X obj 14 -3331 playHSVpan 2 -40.909;
 #X obj 14 -3295 playHSVpan 3 -38.8635;
@@ -422,11 +423,12 @@
 #X obj 337 -3226 playHSVpan 35 26.5905;
 #X obj 338 -3192 playHSVpan 36 28.636;
 #X obj 337 -3157 playHSVpan 37 30.6815;
-#X obj 337 -3124 playHSVpan 38 32.7727;
 #X obj 335 -3091 playHSVpan 39 34.7725;
 #X obj 333 -3054 playHSVpan 40 36.818;
 #X obj 333 -3019 playHSVpan 41 38.8635;
 #X restore 948 -3287 pd VOICES;
+#X floatatom 673 -3260 5 0 0 0 - - -;
+#X obj 669 -3219 s V3-NoiseVol;
 #X connect 1 0 32 1;
 #X connect 1 0 33 1;
 #X connect 2 0 32 0;
@@ -474,3 +476,4 @@
 #X connect 48 0 42 0;
 #X connect 49 0 47 0;
 #X connect 49 0 48 0;
+#X connect 51 0 52 0;
