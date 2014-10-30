@@ -402,7 +402,7 @@ scale;
 #X obj 1062 246 s VH-\$0;
 #X obj 817 -55 r VH-\$0;
 #X obj 169 59 *~ 0.25;
-#X obj 403 239 tof/crossfade~ 1;
+#X obj 403 239 xfade~;
 #X obj 597 113 line~;
 #X msg 597 87 \$1 4;
 #X obj 597 58 pow 2;
