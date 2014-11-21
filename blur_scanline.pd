@@ -1,0 +1,18 @@
+#N canvas 1 52 450 300 10;
+#X obj 33 77 gemwin;
+#X msg 33 44 0 \, destroy;
+#X obj 161 49 gemhead;
+#X obj 157 164 pix_video;
+#X obj 156 230 rectangle 4 3;
+#X msg 18 21 create \, 1;
+#X obj 158 193 pix_texture;
+#X obj 158 25 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X text 223 86 make a blur effect just \; on a thin line on the video
+;
+#X connect 1 0 0 0;
+#X connect 2 0 3 0;
+#X connect 3 0 6 0;
+#X connect 5 0 0 0;
+#X connect 6 0 4 0;
+#X connect 7 0 2 0;
