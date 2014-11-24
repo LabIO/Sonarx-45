@@ -1,4 +1,4 @@
-#N canvas 570 140 780 469 10;
+#N canvas 500 129 780 469 10;
 #X obj 595 7 import mrpeach;
 #X obj 595 29 sounds;
 #X text 16 5 play_sonarX: gets HSV triplets from SonarX and plays the
@@ -81,7 +81,7 @@ corresponding oscillators \, while the f0 is the "gray" ground tone
 #X obj 168 159 bng 30 250 50 0 reset_fVH empty empty 17 7 0 10 -257985
 -1 -1;
 #X obj 13 430 hsl 373 15 0 1 0 0 color_shift color_shift_set color_shift
--2 25 0 10 -162280 -1 -1 558 1;
+-2 25 0 10 -162280 -1 -1 2306 1;
 #X obj 40 160 bng 30 250 50 0 set_fVH_linear empty empty 17 7 0 10
 -260097 -1 -1;
 #X text 72 163 set fVH const;
@@ -284,7 +284,7 @@ hue;
 #X text 212 167 Reset fVH;
 #X obj 207 131 s VoiceType;
 #X obj 207 89 hradio 30 1 0 3 empty empty empty 0 -8 0 10 -86853 -262144
--1 0;
+-1 2;
 #X floatatom 730 29 5 0 0 0 - - -, f 5;
 #X connect 7 0 6 0;
 #X connect 8 0 9 0;
