@@ -1,8 +1,8 @@
-#N canvas 179 169 891 537 10;
+#N canvas 285 219 891 537 10;
 #X obj 472 317 cnv 15 350 200 empty empty empty 20 12 0 14 -204786
 -66577 0;
 #X obj 530 139 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 8890 1;
+-1 -1 2134 1;
 #X obj 230 41 catch~ R;
 #X obj 161 41 catch~ L;
 #X obj 205 246 hip~ 5;
@@ -243,27 +243,27 @@
 -1 -1;
 #X text 488 347 reset functionVH;
 #X obj 571 120 r V;
-#N canvas 132 260 805 493 sound&tables 0;
-#X obj -120 -232 table midi4th_scale;
-#X msg 163 -110 \; midi4th_scale 0 1 6 11 16 21 26 31 36 41 46 51 56
+#N canvas 130 261 805 493 sound&tables 0;
+#X obj 100 179 table midi4th_scale;
+#X msg 383 301 \; midi4th_scale 0 1 6 11 16 21 26 31 36 41 46 51 56
 61 66 71 76 81 86 91 96 101 106 111 116;
-#X msg 147 -40 \; just_intonation_scale 0 1 1.125 1.25 1.33333 1.5
+#X msg 367 371 \; just_intonation_scale 0 1 1.125 1.25 1.33333 1.5
 1.66667 1.875 2 2.25 2.5 2.66667 3 3.3333 3.75 4;
 #N canvas 0 50 450 300 (subpatch) 0;
 #X array just_intonation_scale 15 float 3;
 #A 0 1 1.125 1.25 1.33333 1.5 1.66667 1.875 2 2.25 2.5 2.66667 3 3.3333
 3.75 4;
 #X coords 0 4 15 0 200 140 1 0 0;
-#X restore -127 -117 graph;
-#X msg 195 -327 \; pd dsp 1;
-#X obj 132 -387 loadbang;
-#X obj 132 -360 t b b b b b;
-#X obj -117 -257 table;
-#X obj -116 -196 table Indian-Scale;
-#X msg 179 -194 \; Indian-Scale 0 1 1.0535 1.06667 1.11111 1.125 1.18519
+#X restore 93 294 graph;
+#X msg 415 84 \; pd dsp 1;
+#X obj 352 24 loadbang;
+#X obj 352 51 t b b b b b;
+#X obj 103 154 table;
+#X obj 104 215 table Indian-Scale;
+#X msg 399 217 \; Indian-Scale 0 1 1.0535 1.06667 1.11111 1.125 1.18519
 1.2 1.25 1.26562 1.33333 1.35 1.40625 1.42222 1.5 1.58025 1.6 1.66667
 1.6875 1.7778 1.8 1.875 1.89844;
-#X msg 132 24 \; color_shift_set 0.062 \; VoiceType 0 \;;
+#X msg 352 435 \; color_shift_set 0.062 \; VoiceType 0 \;;
 #X connect 5 0 6 0;
 #X connect 6 0 10 0;
 #X connect 6 1 2 0;
@@ -380,7 +380,12 @@
 #X msg 352 248 135;
 #X msg 400 256 0;
 #X obj 361 218 loadbang;
-#N canvas 1 80 521 553 VOICES 1;
+#X floatatom 638 75 5 0 0 0 - - -, f 5;
+#X obj 638 110 s V3-NoiseVol;
+#N canvas 1 84 521 553 SYNTHS 0;
+#X obj 338 22 playHSVpan 30 16.363;
+#X obj 178 252 playHSVpan 22 0;
+#X obj 337 82 playHSVpan 32 20.454;
 #X obj 15 19 playHSVpan 0 -45;
 #X obj 337 286 playHSVpan 38 32.7727;
 #X obj 15 49 playHSVpan 1 -42.9545;
@@ -404,7 +409,6 @@
 #X obj 177 152 playHSVpan 19 -6.13549;
 #X obj 178 183 playHSVpan 20 -4.08999;
 #X obj 179 217 playHSVpan 21 -2.04449;
-#X obj 178 252 playHSVpan 22 0;
 #X obj 333 497 playHSVpan 44 45;
 #X obj 333 463 playHSVpan 43 42.9545;
 #X obj 332 428 playHSVpan 42 40.909;
@@ -415,9 +419,7 @@
 #X obj 173 427 playHSVpan 27 10.2265;
 #X obj 174 462 playHSVpan 28 12.272;
 #X obj 174 496 playHSVpan 29 14.3175;
-#X obj 338 22 playHSVpan 30 16.363;
 #X obj 338 52 playHSVpan 31 18.4085;
-#X obj 337 82 playHSVpan 32 20.454;
 #X obj 337 118 playHSVpan 33 22.4995;
 #X obj 336 153 playHSVpan 34 24.545;
 #X obj 337 184 playHSVpan 35 26.5905;
@@ -426,9 +428,7 @@
 #X obj 335 319 playHSVpan 39 34.7725;
 #X obj 333 356 playHSVpan 40 36.818;
 #X obj 333 391 playHSVpan 41 38.8635;
-#X restore 781 104 pd VOICES;
-#X floatatom 638 75 5 0 0 0 - - -, f 5;
-#X obj 638 110 s V3-NoiseVol;
+#X restore 781 104 pd SYNTHS;
 #X connect 1 0 32 1;
 #X connect 1 0 33 1;
 #X connect 2 0 32 0;
@@ -476,4 +476,4 @@
 #X connect 48 0 42 0;
 #X connect 49 0 47 0;
 #X connect 49 0 48 0;
-#X connect 51 0 52 0;
+#X connect 50 0 51 0;
