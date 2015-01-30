@@ -1,4 +1,4 @@
-#N canvas 200 82 632 665 10;
+#N canvas 606 118 883 669 10;
 #X msg 182 147 disconnect;
 #X msg 27 148 connect localhost 9998;
 #X msg 281 50 send /State \$1;
@@ -27,7 +27,7 @@
 #X msg 484 468 send /SustOnOff \$1;
 #X obj 482 498 r ref_scale_send;
 #X msg 482 525 send /RefScale \$1;
-#N canvas 198 233 645 514 SYNTHS_OSC 1;
+#N canvas 198 233 645 514 SYNTHS_OSC 0;
 #X obj 29 263 outlet;
 #X obj 108 76 r HSV3plet;
 #X text 176 75 H S V values;
@@ -181,11 +181,12 @@
 #X msg 372 636 send /functVH \$1;
 #X obj 96 613 r color_shift;
 #X msg 96 635 send /color_shift-set \$1;
-#X obj 84 86 s scaleGUI;
 #X text 207 -11 versione 1 novembro 2013;
 #X obj 384 39 r MainVol;
 #X msg 384 65 send /MainVol \$1;
 #X text 477 95 Synths \, notes & bundles;
+#X obj 675 395 r VoiceType-set;
+#X msg 676 421 send /VoiceType-set \$1;
 #X connect 0 0 10 0;
 #X connect 1 0 10 0;
 #X connect 2 0 5 0;
@@ -213,7 +214,6 @@
 #X connect 28 0 5 0;
 #X connect 31 0 32 0;
 #X connect 31 1 33 0;
-#X connect 31 1 45 0;
 #X connect 32 0 34 0;
 #X connect 33 0 35 0;
 #X connect 34 0 10 1;
@@ -229,5 +229,7 @@
 #X connect 42 0 5 0;
 #X connect 43 0 44 0;
 #X connect 44 0 5 0;
-#X connect 47 0 48 0;
-#X connect 48 0 5 0;
+#X connect 46 0 47 0;
+#X connect 47 0 5 0;
+#X connect 49 0 50 0;
+#X connect 50 0 5 0;
