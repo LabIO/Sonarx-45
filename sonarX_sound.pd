@@ -1,4 +1,4 @@
-#N canvas 341 159 780 474 10;
+#N canvas 339 160 780 474 10;
 #X obj 12 411 import mrpeach;
 #X obj 328 39 sounds;
 #N canvas 671 265 578 427 recOSC 0;

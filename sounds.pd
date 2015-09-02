@@ -1,8 +1,8 @@
-#N canvas 107 62 891 537 10;
+#N canvas 103 64 891 537 10;
 #X obj 472 317 cnv 15 350 200 empty empty empty 20 12 0 14 -204786
 -66577 0;
 #X obj 530 139 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 2134 1;
+-1 -1 8890 1;
 #X obj 230 41 catch~ R;
 #X obj 161 41 catch~ L;
 #X obj 530 105 line;
@@ -33,7 +33,7 @@
 #X restore 796 40 pd tik;
 #N canvas 576 114 646 571 record 0;
 #X obj 48 -2949 timer;
-#X floatatom 49 -2898 10 0 0 0 - - -;
+#X floatatom 49 -2898 10 0 0 0 - - -, f 10;
 #X msg 49 -2876 resize \$1;
 #X msg -164 -2996 start;
 #X msg 160 -2793 stop;
@@ -289,7 +289,7 @@
 ;
 #X msg 623 210 \; functionVH cosinesum 1023 1 1 \; functionVH resize
 230;
-#X floatatom 638 75 5 0 0 0 - - -;
+#X floatatom 638 75 5 0 0 0 - - -, f 5;
 #X obj 638 110 s V3-NoiseVol;
 #N canvas 26 54 521 545 SYNTHS 0;
 #X obj 338 22 playHSVpan 30 16.363;
@@ -338,7 +338,7 @@
 #X obj 333 356 playHSVpan 40 36.818;
 #X obj 333 391 playHSVpan 41 38.8635;
 #X restore 781 104 pd SYNTHS;
-#N canvas 119 77 513 458 FX-PROCESS 0;
+#N canvas 117 78 513 458 FX-PROCESS 0;
 #X obj 96 55 inlet~;
 #X obj 173 58 inlet~;
 #X obj 70 424 outlet~;
@@ -418,7 +418,7 @@
 #X connect 33 0 8 0;
 #X restore 74 248 pd efeitos;
 #X obj 22 84 mtof;
-#X floatatom 22 106 8 0 0 0 - - -;
+#X floatatom 22 106 8 0 0 0 - - -, f 8;
 #X obj 22 13 vsl 15 60 0 186 0 0 empty empty empty 0 -9 0 10 -99865
 -1 -1 0 1;
 #X text -26 -12 low pass freq;
@@ -433,9 +433,9 @@
 #X msg 233 181 135;
 #X msg 281 189 0;
 #X obj 242 151 loadbang;
-#X obj 19 382 compressore~;
 #X obj 251 86 switch~;
 #X obj 251 44 inlet;
+#X obj 19 382 compressore~;
 #X connect 0 0 6 0;
 #X connect 1 0 7 0;
 #X connect 4 0 8 1;
@@ -457,15 +457,15 @@
 #X connect 16 0 14 2;
 #X connect 16 0 18 2;
 #X connect 17 0 15 0;
-#X connect 18 0 24 0;
+#X connect 18 0 26 0;
 #X connect 19 0 18 0;
 #X connect 20 0 14 0;
 #X connect 21 0 17 0;
 #X connect 22 0 16 0;
 #X connect 23 0 21 0;
 #X connect 23 0 22 0;
-#X connect 24 0 2 0;
-#X connect 26 0 25 0;
+#X connect 25 0 24 0;
+#X connect 26 0 2 0;
 #X restore 145 274 pd FX-PROCESS;
 #X obj 129 229 demux~;
 #X obj 180 221 demux~;
@@ -473,9 +473,7 @@
 #X obj 234 336 throw~ MainOut-R;
 #X obj 199 447 catch~ MainOut-L;
 #X obj 313 447 catch~ MainOut-R;
-#X obj 15 445 catch~ MainOut-L;
-#X obj 33 474 catch~ MainOut-R;
-#X obj 220 173 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 220 173 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
 1;
 #X obj 220 196 t f f;
 #X text 247 171 Effects Bypass;
@@ -506,11 +504,11 @@
 #X connect 34 0 36 0;
 #X connect 34 1 32 1;
 #X connect 37 0 12 0;
+#X connect 37 0 8 0;
 #X connect 38 0 13 0;
-#X connect 39 0 8 0;
-#X connect 40 0 8 1;
-#X connect 41 0 42 0;
-#X connect 42 0 33 0;
-#X connect 42 0 34 0;
-#X connect 42 1 32 2;
-#X connect 44 0 41 0;
+#X connect 38 0 8 1;
+#X connect 39 0 40 0;
+#X connect 40 0 33 0;
+#X connect 40 0 34 0;
+#X connect 40 1 32 2;
+#X connect 42 0 39 0;
