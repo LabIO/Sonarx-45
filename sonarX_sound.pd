@@ -1,8 +1,7 @@
-#N canvas 218 54 780 474 10;
-#X declare -lib mrpeach;
+#N canvas 216 55 780 474 10;
 #X obj 12 411 import mrpeach;
 #X obj 328 39 sounds;
-#N canvas 671 265 578 427 recOSC 0;
+#N canvas 771 115 578 427 recOSC 1;
 #X obj 1 49 unpackOSC;
 #X obj 1 11 udpreceive 9998;
 #X obj 26 209 makefilename Synth_%d;
@@ -36,10 +35,13 @@
 #X obj 438 162 s V;
 #X obj 457 272 s color_shift_set;
 #X obj 472 161 s VoiceType-set;
+#X obj 184 32 print;
 #X obj 56 86 routeOSC /Synth /State /Scale /f0 /0cross /save_sound
 /tikOnOff /Gmode /SustOnOff /SustTime /RefScale /c_line /invertH /functVH
-/color_shift-set /MainVol /VoiceType-set;
+/color_shift-set /MainVol /VoiceType-set /startstop;
+#X obj 452 122 s startstop;
 #X connect 0 0 31 0;
+#X connect 0 0 32 0;
 #X connect 1 0 0 0;
 #X connect 2 0 4 1;
 #X connect 3 0 4 0;
@@ -50,23 +52,24 @@
 #X connect 7 0 6 0;
 #X connect 24 0 26 0;
 #X connect 26 0 25 0;
-#X connect 31 0 5 0;
-#X connect 31 1 15 0;
-#X connect 31 2 7 0;
-#X connect 31 3 16 0;
-#X connect 31 4 11 0;
-#X connect 31 5 12 0;
-#X connect 31 6 13 0;
-#X connect 31 7 17 0;
-#X connect 31 8 18 0;
-#X connect 31 9 19 0;
-#X connect 31 10 20 0;
-#X connect 31 11 21 0;
-#X connect 31 12 23 0;
-#X connect 31 13 22 0;
-#X connect 31 14 29 0;
-#X connect 31 15 28 0;
-#X connect 31 16 30 0;
+#X connect 32 0 5 0;
+#X connect 32 1 15 0;
+#X connect 32 2 7 0;
+#X connect 32 3 16 0;
+#X connect 32 4 11 0;
+#X connect 32 5 12 0;
+#X connect 32 6 13 0;
+#X connect 32 7 17 0;
+#X connect 32 8 18 0;
+#X connect 32 9 19 0;
+#X connect 32 10 20 0;
+#X connect 32 11 21 0;
+#X connect 32 12 23 0;
+#X connect 32 13 22 0;
+#X connect 32 14 29 0;
+#X connect 32 15 28 0;
+#X connect 32 16 30 0;
+#X connect 32 17 33 0;
 #X restore 327 84 pd recOSC;
 #X obj 14 13 cnv 15 300 150 empty empty empty 20 12 0 14 -204786 -66577
 0;
@@ -88,10 +91,10 @@
 #X obj 650 405 line~;
 #X obj 650 384 pack 0 5;
 #X obj 651 427 s~ delaytime;
-#X floatatom 650 364 5 0 0 0 - - -;
+#X floatatom 650 364 5 0 0 0 - - -, f 5;
 #X obj 548 406 line~;
 #X obj 548 386 pack 0 5;
-#X floatatom 548 366 5 0 0 0 - - -;
+#X floatatom 548 366 5 0 0 0 - - -, f 5;
 #X obj 547 426 s~ delayfeedback;
 #X obj 460 295 vsl 15 60 0 1 0 0 empty empty empty 0 -9 0 10 -258113
 -1 -1 0 1;
@@ -115,7 +118,7 @@
 #X floatatom 680 223 0 0 100 0 - - -;
 #X obj 680 246 s revLiv;
 #X obj 485 214 mtof;
-#X floatatom 485 236 8 0 0 0 - - -;
+#X floatatom 485 236 8 0 0 0 - - -, f 8;
 #X obj 485 143 vsl 15 60 0 186 0 1 empty empty empty 0 -9 0 10 -99865
 -1 -1 2400 1;
 #X obj 485 259 s revCrossOf;
@@ -147,24 +150,24 @@ hue;
 #X obj 115 65 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 115 93 sel 0 1;
-#X floatatom 4 200 12 0 0 0 - - -;
+#X floatatom 4 200 12 0 0 0 - - -, f 12;
 #X obj 41 13 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 115 253 / 8;
-#X floatatom 185 200 5 0 0 3 bar_partition - -;
+#X floatatom 185 200 5 0 0 3 bar_partition - -, f 5;
 #X obj 115 334 / 24;
-#X floatatom 182 381 12 0 0 0 - - -;
+#X floatatom 182 381 12 0 0 0 - - -, f 12;
 #X obj 88 383 metro;
 #X obj 85 491 midiout;
 #X msg 88 416 248;
 #X obj 68 355 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X text 109 -31 midi clock;
-#X floatatom 220 122 5 0 0 0 - - -;
+#X floatatom 220 122 5 0 0 0 - - -, f 5;
 #X obj 352 -6 vsl 30 300 40 180 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 295 318 expr 60000/$f1;
-#X floatatom 267 267 5 0 0 0 BPM - -;
+#X floatatom 267 267 5 0 0 0 BPM - -, f 5;
 #X obj 189 5 r 0XSample;
 #X msg 134 417 250;
 #X msg 160 444 252;
@@ -221,11 +224,11 @@ hue;
 #X obj 479 5 cnv 15 190 100 empty empty empty 20 12 0 14 -204786 -66577
 0;
 #X obj 225 441 s fourthSHift;
-#X floatatom 319 424 5 0 0 0 - - -;
+#X floatatom 319 424 5 0 0 0 - - -, f 5;
 #X obj 319 441 s ScaleSize;
 #X obj 226 399 r f0;
 #X obj 225 420 ftom;
-#X floatatom 460 363 5 0 0 0 - - -;
+#X floatatom 460 363 5 0 0 0 - - -, f 5;
 #X obj 507 30 hsl 60 10 0 1 0 1 comp-ratio empty ratio -2 -7 0 10 -101452
 -262144 -355 4592 1;
 #X obj 507 53 hsl 60 10 0 1 0 1 comp-attack empty attack -2 -7 0 10
@@ -289,7 +292,7 @@ hue;
 #X obj 115 405 cnv 15 97 38 empty empty empty 20 12 0 14 -128992 -228856
 0;
 #X obj 117 423 s WhiteTreshold;
-#X floatatom 117 407 12 0 0 0 - - -;
+#X floatatom 117 407 12 0 0 0 - - -, f 12;
 #N canvas 854 153 450 300 help 0;
 #X text 18 8 play_sonarX: gets HSV triplets from SonarX and plays the
 corresponding oscillators \, while the f0 is the "gray" ground tone
