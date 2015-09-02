@@ -1,4 +1,4 @@
-#N canvas 1 83 673 405 10;
+#N canvas 26 85 673 405 10;
 #X obj 30 230 outlet~;
 #X obj 9 -64 inlet~;
 #N canvas 269 166 490 455 processing 0;
@@ -242,6 +242,7 @@
 #X obj 529 -71 r comp-release;
 #X obj -4 83 demux~;
 #X obj 20 8 r comp-bypass;
+#X obj 25 44 switch~;
 #X connect 1 0 23 0;
 #X connect 2 0 0 0;
 #X connect 3 0 2 2;
@@ -271,3 +272,4 @@
 #X connect 23 0 2 0;
 #X connect 23 1 0 0;
 #X connect 24 0 23 0;
+#X connect 24 0 25 0;
