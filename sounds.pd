@@ -1,14 +1,14 @@
-#N canvas 101 62 891 537 10;
+#N canvas 69 230 891 537 10;
 #X obj 472 317 cnv 15 350 200 empty empty empty 20 12 0 14 -204786
 -66577 0;
 #X obj 530 139 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 2134 1;
-#X obj 230 41 catch~ R;
-#X obj 161 41 catch~ L;
+-1 -1 1174 1;
+#X obj 230 21 catch~ R;
+#X obj 159 20 catch~ L;
 #X obj 530 105 line;
 #X obj 524 44 sel 0;
 #X msg 510 67 0 500;
-#N canvas 93 95 450 300 tik 0;
+#N canvas 91 96 450 300 tik 1;
 #X obj 189 11 r 0cross;
 #X obj 123 241 throw~ L;
 #X obj 185 239 throw~ R;
@@ -20,6 +20,9 @@
 #X msg 200 88 1 \, 0 0 10;
 #X obj 281 18 r tikOnOff;
 #X obj 207 57 spigot;
+#X obj 335 155 switch~;
+#X obj 345 101 loadbang;
+#X msg 345 123 0;
 #X connect 0 0 10 0;
 #X connect 3 0 6 0;
 #X connect 4 0 1 0;
@@ -29,11 +32,14 @@
 #X connect 7 0 4 0;
 #X connect 8 0 5 0;
 #X connect 9 0 10 1;
+#X connect 9 0 11 0;
 #X connect 10 0 8 0;
+#X connect 12 0 13 0;
+#X connect 13 0 11 0;
 #X restore 796 40 pd tik;
 #N canvas 576 114 646 571 record 0;
 #X obj 48 -2949 timer;
-#X floatatom 49 -2898 10 0 0 0 - - -;
+#X floatatom 49 -2898 10 0 0 0 - - -, f 10;
 #X msg 49 -2876 resize \$1;
 #X msg -164 -2996 start;
 #X msg 160 -2793 stop;
@@ -109,7 +115,7 @@
 #X connect 34 0 5 0;
 #X restore 13 509 pd record;
 #X obj 522 13 r state;
-#N canvas 9 83 977 586 cor_sample 0;
+#N canvas 131 90 977 586 cor_sample 0;
 #X obj -75 52 table cor_sample;
 #X obj 202 536 soundfiler;
 #X msg 310 193 read -resize ./coresWav/0_vermelho.wav cor_sample;
@@ -165,7 +171,7 @@
 -1 -1;
 #X text 488 347 reset functionVH;
 #X obj 571 120 r V;
-#N canvas 130 261 805 493 sound&tables 0;
+#N canvas 128 262 805 493 sound&tables 0;
 #X obj 100 179 table midi4th_scale;
 #X msg 383 301 \; midi4th_scale 0 1 6 11 16 21 26 31 36 41 46 51 56
 61 66 71 76 81 86 91 96 101 106 111 116;
@@ -200,7 +206,7 @@
 #X text 573 11 Volume (on/off) receives state from video patch;
 #X obj 230 67 *~ 1;
 #X obj 160 65 *~ 1;
-#N canvas 1 144 712 393 reverse_arrayH 0;
+#N canvas 1 145 712 393 reverse_arrayH 0;
 #X obj 80 79 bng 15 250 50 0 empty empty Reverse_me 18 7 0 8 -262144
 -1 -1;
 #X obj 80 170 until;
@@ -289,9 +295,9 @@
 ;
 #X msg 623 210 \; functionVH cosinesum 1023 1 1 \; functionVH resize
 230;
-#X floatatom 638 75 5 0 0 0 - - -;
+#X floatatom 638 75 5 0 0 0 - - -, f 5;
 #X obj 638 110 s V3-NoiseVol;
-#N canvas 26 54 521 545 SYNTHS 0;
+#N canvas 24 55 521 545 SYNTHS 0;
 #X obj 15 19 playHSVpan 0 -45;
 #X obj 338 22 playHSVpan 30 16.363;
 #X obj 178 252 playHSVpan 22 0;
@@ -418,7 +424,7 @@
 #X connect 33 0 8 0;
 #X restore 74 248 pd efeitos;
 #X obj 22 84 mtof;
-#X floatatom 22 106 8 0 0 0 - - -;
+#X floatatom 22 106 8 0 0 0 - - -, f 8;
 #X obj 22 13 vsl 15 60 0 186 0 0 empty empty empty 0 -9 0 10 -99865
 -1 -1 0 1;
 #X text -26 -12 low pass freq;

@@ -1,7 +1,7 @@
-#N canvas 541 105 780 474 10;
+#N canvas 276 178 780 474 10;
 #X obj 12 411 import mrpeach;
 #X obj 328 39 sounds;
-#N canvas 708 126 639 417 recOSC 0;
+#N canvas 704 128 639 417 recOSC 0;
 #X obj 4 43 unpackOSC;
 #X obj 4 5 udpreceive 9998;
 #X obj 29 203 makefilename Synth_%d;
@@ -10,7 +10,7 @@
 #X obj 6 138 unpack f f f f;
 #X obj 116 387 s scalaH;
 #X obj 113 252 vradio 15 1 0 9 empty empty empty 0 -8 0 10 -262144
--1 -1 4;
+-1 -1 7;
 #X text 134 264 octave 12 notes (cromatic);
 #X text 110 232 scale to output H values;
 #X text 131 248 octave digital continuous;
@@ -35,7 +35,7 @@
 #X obj 441 156 s V;
 #X obj 460 266 s color_shift_set;
 #X obj 475 155 s VoiceType-set;
-#X obj 59 80 routeOSC /Synth /State /Scale /f0 /0cross /save_sound
+#X obj 59 70 routeOSC /Synth /State /Scale /f0 /0cross /save_sound
 /tikOnOff /Gmode /SustOnOff /SustTime /RefScale /c_line /invertH /functVH
 /color_shift-set /MainVol /VoiceType-set /startstop;
 #X obj 455 116 s startstop;
@@ -72,7 +72,7 @@
 #X obj 14 13 cnv 15 300 150 empty empty empty 20 12 0 14 -204786 -66577
 0;
 #X obj 27 31 vsl 20 120 0 1 0 1 V empty volume 0 -9 0 10 -262144 -1
--1 8600 1;
+-1 1700 1;
 #X obj 175 84 tgl 20 0 functVH functVH-set Apply_VH_filter -5 27 0
 10 -86853 -1 -1 0 1;
 #X obj 174 122 tgl 20 0 invertHue invertH-set invert_mapping -5 30
@@ -286,7 +286,7 @@ hue;
 #X text 201 59 Reset fVH;
 #X obj 61 75 s VoiceType;
 #X obj 61 33 hradio 30 1 0 3 empty VoiceType-set empty 0 -8 0 10 -86853
--262144 -1 0;
+-262144 -1 2;
 #X obj 115 405 cnv 15 97 38 empty empty empty 20 12 0 14 -128992 -228856
 0;
 #X obj 117 423 s WhiteTreshold;
