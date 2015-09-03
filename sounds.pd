@@ -1,8 +1,8 @@
-#N canvas 103 64 891 537 10;
+#N canvas 101 62 891 537 10;
 #X obj 472 317 cnv 15 350 200 empty empty empty 20 12 0 14 -204786
 -66577 0;
 #X obj 530 139 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 8890 1;
+-1 -1 2134 1;
 #X obj 230 41 catch~ R;
 #X obj 161 41 catch~ L;
 #X obj 530 105 line;
@@ -33,7 +33,7 @@
 #X restore 796 40 pd tik;
 #N canvas 576 114 646 571 record 0;
 #X obj 48 -2949 timer;
-#X floatatom 49 -2898 10 0 0 0 - - -, f 10;
+#X floatatom 49 -2898 10 0 0 0 - - -;
 #X msg 49 -2876 resize \$1;
 #X msg -164 -2996 start;
 #X msg 160 -2793 stop;
@@ -289,13 +289,13 @@
 ;
 #X msg 623 210 \; functionVH cosinesum 1023 1 1 \; functionVH resize
 230;
-#X floatatom 638 75 5 0 0 0 - - -, f 5;
+#X floatatom 638 75 5 0 0 0 - - -;
 #X obj 638 110 s V3-NoiseVol;
 #N canvas 26 54 521 545 SYNTHS 0;
+#X obj 15 19 playHSVpan 0 -45;
 #X obj 338 22 playHSVpan 30 16.363;
 #X obj 178 252 playHSVpan 22 0;
 #X obj 337 82 playHSVpan 32 20.454;
-#X obj 15 19 playHSVpan 0 -45;
 #X obj 337 286 playHSVpan 38 32.7727;
 #X obj 15 49 playHSVpan 1 -42.9545;
 #X obj 14 79 playHSVpan 2 -40.909;
@@ -418,7 +418,7 @@
 #X connect 33 0 8 0;
 #X restore 74 248 pd efeitos;
 #X obj 22 84 mtof;
-#X floatatom 22 106 8 0 0 0 - - -, f 8;
+#X floatatom 22 106 8 0 0 0 - - -;
 #X obj 22 13 vsl 15 60 0 186 0 0 empty empty empty 0 -9 0 10 -99865
 -1 -1 0 1;
 #X text -26 -12 low pass freq;
