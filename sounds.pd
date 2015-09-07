@@ -1,14 +1,14 @@
-#N canvas 69 230 891 537 10;
+#N canvas 67 230 891 537 10;
 #X obj 472 317 cnv 15 350 200 empty empty empty 20 12 0 14 -204786
 -66577 0;
 #X obj 530 139 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 1174 1;
+-1 -1 667 1;
 #X obj 230 21 catch~ R;
 #X obj 159 20 catch~ L;
 #X obj 530 105 line;
 #X obj 524 44 sel 0;
 #X msg 510 67 0 500;
-#N canvas 91 96 450 300 tik 1;
+#N canvas 91 96 450 300 tik 0;
 #X obj 189 11 r 0cross;
 #X obj 123 241 throw~ L;
 #X obj 185 239 throw~ R;
@@ -115,8 +115,8 @@
 #X connect 34 0 5 0;
 #X restore 13 509 pd record;
 #X obj 522 13 r state;
-#N canvas 131 90 977 586 cor_sample 0;
-#X obj -75 52 table cor_sample;
+#N canvas 343 64 770 590 cor_sample 1;
+#X obj 24 29 table cor_sample;
 #X obj 202 536 soundfiler;
 #X msg 310 193 read -resize ./coresWav/0_vermelho.wav cor_sample;
 #X msg 329 217 read -resize ./coresWav/1_laranja.wav cor_sample;
@@ -130,11 +130,11 @@
 #X msg 400 380 read -resize ./coresWav/7_azulCiao.wav cor_sample;
 #X msg 406 413 read -resize ./coresWav/8_indigo.wav cor_sample;
 #X msg 414 446 read -resize ./coresWav/9_violeta.wav cor_sample;
-#X obj 102 72 r ref_scale;
+#X obj 127 71 r ref_scale;
 #X obj 127 96 t b a;
-#X obj -67 198 tabplay~ cor_sample;
-#X obj 31 248 throw~ R;
-#X obj -83 245 throw~ L;
+#X obj 55 209 tabplay~ cor_sample;
+#X obj 101 255 throw~ R;
+#X obj 33 256 throw~ L;
 #X obj 134 148 sel 9 8 7 6 5 4 3 2 1 0;
 #X obj 55 130 delay 500;
 #X connect 2 0 1 0;

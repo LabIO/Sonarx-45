@@ -1,0 +1,186 @@
+#N canvas 480 143 487 558 10;
+#X obj 176 37 inlet;
+#X obj 180 515 outlet depth_img;
+#X obj 126 136 gemhead;
+#X obj 247 136 gemhead;
+#X text 134 117 gemhead for rgb;
+#X text 254 116 and for depth;
+#X text 141 198 rgb;
+#X msg 68 176 info;
+#X obj 62 129 r \$0-prop;
+#X obj 126 176 pix_freenect A00367816982042A 1 1;
+#X obj 383 186 tgl 15 0 empty empty mode 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 373 164 tgl 15 0 empty empty on/off 17 7 0 10 -262144 -1 -1
+0 1;
+#X obj 126 97 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X obj 247 98 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#X text 231 197 Depth;
+#X text 51 192 get serial;
+#N canvas 519 77 844 360 properties 0;
+#X obj 13 46 cnv 15 140 220 empty empty empty 20 12 0 14 -204800 -66577
+0;
+#X msg 18 230 led \$1;
+#X obj 18 111 vradio 15 1 0 6 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X floatatom 18 207 5 0 0 0 - - -, f 5;
+#X msg 95 230 angle \$1;
+#X obj 95 75 vsl 15 128 -30 30 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 95 211 5 0 0 0 - - -, f 5;
+#X msg 95 50 0;
+#X text 34 125 GREEN;
+#X text 35 109 OFF;
+#X text 34 141 RED;
+#X text 34 156 YELLOW;
+#X text 34 171 BLINK_GR;
+#X text 34 185 BLINK_R_Y;
+#X obj 168 48 cnv 15 320 120 empty empty empty 20 12 0 14 -4034 -66577
+0;
+#X obj 179 85 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X floatatom 179 120 5 0 0 0 - - -, f 5;
+#X obj 244 86 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144 -1
+-1 1;
+#X floatatom 244 121 5 0 0 0 - - -, f 5;
+#X msg 179 141 rgb \$1;
+#X msg 244 142 depth \$1;
+#X text 171 48 activate/deactivate streams;
+#X text 173 62 save cpu power by just activating necessary streams!
+;
+#X obj 496 49 cnv 15 315 120 empty empty empty 20 12 0 14 -232576 -66577
+0;
+#X obj 499 88 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144 -1
+-1 0;
+#X floatatom 499 123 5 0 0 0 - - -, f 5;
+#X msg 499 143 depth_output \$1;
+#X text 646 111 b = 0 \, a = 0;
+#X text 21 4 properties for pix_freenect;
+#X text 517 26 DEPTH OUTPUT;
+#X text 190 27 STREAMS;
+#X text 36 27 LED \, ANGLE;
+#X text 645 98 r->3 msbits \, g ->8 lsbits;
+#X text 518 101 Raw YUV (2 bytes) |;
+#X text 518 86 Raw RGBA -> 11 bit output in r&g channel;
+#X obj 168 192 cnv 15 520 120 empty empty empty 20 12 0 14 -261682
+-66577 0;
+#X obj 180 215 vradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X floatatom 180 264 5 0 0 0 - - -, f 5;
+#X obj 368 226 vradio 15 1 0 2 empty empty empty 0 -8 0 10 -262144
+-1 -1 0;
+#X floatatom 368 261 5 0 0 0 - - -, f 5;
+#X msg 180 285 depth_mode \$1;
+#X text 201 243 11bit raw;
+#X text 503 52 set depth output colorspace;
+#X text 171 195 set output formats;
+#X text 201 227 mm aligned to rgb (16 bit);
+#X text 201 213 mm unaligned (16 bit);
+#X msg 368 282 video_mode \$1;
+#X text 388 224 RGB;
+#X text 387 240 IR;
+#X obj 18 256 s \$0-prop;
+#X obj 179 166 s \$0-prop;
+#X obj 499 169 s \$0-prop;
+#X obj 180 314 s \$0-prop;
+#X obj 484 220 vradio 15 1 0 3 empty empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X floatatom 484 268 5 0 0 0 - - -, f 5;
+#X msg 484 287 resolution \$1;
+#X text 504 234 MEDIUM (default);
+#X text 481 197 RGB RESOLUTION;
+#X text 504 249 HIGH (restart rgb stream!);
+#X text 504 219 LOW (not displaying correctly);
+#X msg 106 314 1;
+#X text 444 313 HIGH Resolution IR works just if depth stream is shut
+down!!;
+#X obj 107 288 r B;
+#X connect 1 0 49 0;
+#X connect 2 0 3 0;
+#X connect 3 0 1 0;
+#X connect 4 0 49 0;
+#X connect 5 0 6 0;
+#X connect 6 0 4 0;
+#X connect 7 0 5 0;
+#X connect 15 0 16 0;
+#X connect 16 0 19 0;
+#X connect 17 0 18 0;
+#X connect 18 0 20 0;
+#X connect 19 0 50 0;
+#X connect 20 0 50 0;
+#X connect 24 0 25 0;
+#X connect 25 0 26 0;
+#X connect 26 0 51 0;
+#X connect 36 0 37 0;
+#X connect 37 0 40 0;
+#X connect 38 0 39 0;
+#X connect 39 0 46 0;
+#X connect 40 0 52 0;
+#X connect 46 0 52 0;
+#X connect 53 0 54 0;
+#X connect 54 0 55 0;
+#X connect 55 0 52 0;
+#X connect 60 0 36 0;
+#X connect 62 0 60 0;
+#X restore 375 113 pd properties;
+#X obj 385 89 s \$0-prop;
+#X msg 384 62 resolution 1;
+#X msg 303 31 video_mode 0;
+#X msg 296 61 depth_mode 1;
+#X obj 406 34 loadbang;
+#X obj 132 381 alpha;
+#X obj 217 382 pix_gain;
+#X obj 216 312 pix_gray;
+#X msg 277 337 4;
+#X obj 174 476 pix_flip;
+#X msg 250 449 horizontal;
+#X msg 283 478 none;
+#X obj 277 316 r B;
+#X floatatom 276 360 5 0 0 0 - - -, f 5;
+#X obj 262 423 sel 1, f 7;
+#X obj 347 429 r H-Flip;
+#X obj 144 421 pix_multiply;
+#X obj 418 216 r HiT;
+#X obj 407 278 r LowT;
+#X obj 258 278 pix_depth2rgba 5000 0;
+#X obj 388 217 *;
+#X obj 385 242 s HiT_val;
+#X connect 0 0 12 0;
+#X connect 0 0 13 0;
+#X connect 2 0 9 0;
+#X connect 3 0 9 1;
+#X connect 7 0 9 0;
+#X connect 8 0 9 0;
+#X connect 9 0 22 0;
+#X connect 9 1 36 0;
+#X connect 10 0 36 1;
+#X connect 11 0 36 0;
+#X connect 12 0 2 0;
+#X connect 13 0 3 0;
+#X connect 18 0 17 0;
+#X connect 19 0 17 0;
+#X connect 20 0 17 0;
+#X connect 21 0 19 0;
+#X connect 21 0 20 0;
+#X connect 21 0 18 0;
+#X connect 22 0 33 0;
+#X connect 23 0 33 1;
+#X connect 24 0 23 0;
+#X connect 25 0 30 0;
+#X connect 26 0 1 0;
+#X connect 27 0 26 0;
+#X connect 28 0 26 0;
+#X connect 29 0 25 0;
+#X connect 30 0 23 1;
+#X connect 31 0 27 0;
+#X connect 31 1 28 0;
+#X connect 32 0 31 0;
+#X connect 33 0 26 0;
+#X connect 34 0 37 0;
+#X connect 34 0 37 1;
+#X connect 35 0 36 3;
+#X connect 36 0 24 0;
+#X connect 37 0 36 2;
+#X connect 37 0 38 0;
