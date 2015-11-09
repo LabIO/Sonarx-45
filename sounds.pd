@@ -1,8 +1,8 @@
-#N canvas 67 230 891 537 10;
+#N canvas 74 199 891 537 10;
 #X obj 472 317 cnv 15 350 200 empty empty empty 20 12 0 14 -204786
 -66577 0;
 #X obj 530 139 vsl 15 128 0 1 0 0 empty empty empty 0 -9 0 10 -262144
--1 -1 667 1;
+-1 -1 9544 1;
 #X obj 230 21 catch~ R;
 #X obj 159 20 catch~ L;
 #X obj 530 105 line;
@@ -113,9 +113,9 @@
 #X connect 32 0 33 0;
 #X connect 33 0 31 0;
 #X connect 34 0 5 0;
-#X restore 13 509 pd record;
+#X restore 37 424 pd record;
 #X obj 522 13 r state;
-#N canvas 343 64 770 590 cor_sample 1;
+#N canvas 343 64 770 590 cor_sample 0;
 #X obj 24 29 table cor_sample;
 #X obj 202 536 soundfiler;
 #X msg 310 193 read -resize ./coresWav/0_vermelho.wav cor_sample;
@@ -164,9 +164,9 @@
 #X connect 17 9 11 0;
 #X connect 18 0 14 0;
 #X restore 759 73 pd cor_sample;
-#X obj 203 521 dac~;
-#X obj 199 486 clip~ -1 1;
-#X obj 270 486 clip~ -1 1;
+#X obj 153 458 dac~;
+#X obj 149 423 clip~ -1 1;
+#X obj 220 423 clip~ -1 1;
 #X obj 633 396 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X text 488 347 reset functionVH;
@@ -344,7 +344,7 @@
 #X obj 333 356 playHSVpan 40 36.818;
 #X obj 333 391 playHSVpan 41 38.8635;
 #X restore 781 104 pd SYNTHS;
-#N canvas 117 78 513 458 FX-PROCESS 0;
+#N canvas 782 188 513 458 FX-PROCESS 0;
 #X obj 96 55 inlet~;
 #X obj 173 58 inlet~;
 #X obj 70 424 outlet~;
@@ -353,7 +353,7 @@
 #X obj 73 195 hip~ 5;
 #X obj 82 158 lop~ 20000;
 #X obj 154 157 lop~ 20000;
-#N canvas 43 55 953 540 efeitos 0;
+#N canvas 41 56 953 540 efeitos 0;
 #X obj 39 14 inlet~;
 #X obj 354 17 inlet~;
 #X obj 372 171 receive~ delfR;
@@ -442,6 +442,8 @@
 #X obj 251 86 switch~;
 #X obj 251 44 inlet;
 #X obj 19 382 compressore~;
+#X obj 376 197 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 8600 1;
 #X connect 0 0 6 0;
 #X connect 1 0 7 0;
 #X connect 4 0 8 1;
@@ -472,18 +474,19 @@
 #X connect 23 0 22 0;
 #X connect 25 0 24 0;
 #X connect 26 0 2 0;
+#X connect 27 0 17 0;
 #X restore 145 274 pd FX-PROCESS;
 #X obj 129 229 demux~;
 #X obj 180 221 demux~;
 #X obj 127 334 throw~ MainOut-L;
 #X obj 234 336 throw~ MainOut-R;
-#X obj 199 447 catch~ MainOut-L;
-#X obj 313 447 catch~ MainOut-R;
-#X obj 220 173 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+#X obj 149 384 catch~ MainOut-L;
+#X obj 263 384 catch~ MainOut-R;
+#X obj 220 173 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 220 196 t f f;
-#X text 247 171 Effects Bypass;
 #X obj 220 146 loadbang;
+#X text 247 171 Effects On/Off;
 #X connect 1 0 23 1;
 #X connect 1 0 24 1;
 #X connect 2 0 23 0;
@@ -517,4 +520,4 @@
 #X connect 40 0 33 0;
 #X connect 40 0 34 0;
 #X connect 40 1 32 2;
-#X connect 42 0 39 0;
+#X connect 41 0 39 0;

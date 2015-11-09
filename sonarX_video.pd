@@ -1,8 +1,8 @@
-#N canvas 46 223 528 377 10;
+#N canvas 238 113 528 377 10;
 #X obj 208 5 cnv 15 80 80 empty empty empty 20 12 0 14 -195568 -66577
 0;
 #X obj 221 23 tgl 50 0 startstop empty start/stop -5 -9 0 10 -4034
--1 -1 1 1;
+-1 -1 0 1;
 #X obj 10 4 cnv 15 190 360 empty empty IMAGE 70 12 0 14 -203904 -66577
 0;
 #X obj 22 30 tgl 50 0 onoffgemwin empty on/off_video 60 7 0 10 -4032
@@ -12,7 +12,7 @@
 #X obj 83 104 bng 30 250 50 0 open_still_img empty load 3 15 0 10 -232576
 -1 -1;
 #X obj 20 106 vradio 30 1 0 4 vidORstill vidORstill_init input 0 -10
-0 10 -4160 -1 -1 3;
+0 10 -4160 -1 -1 0;
 #X obj 364 4 cnv 15 150 360 empty empty SOUND 70 12 0 14 -261234 -66577
 0;
 #X obj 371 34 tgl 50 0 state stateGUI on/off_sound 60 7 0 10 -260097
@@ -37,11 +37,11 @@
 -1 -1 0 1;
 #X text 256 335 manual;
 #X obj 219 141 vradio 15 1 0 13 scanspeed scanspeed-set empty 0 -8
-0 10 -203904 -1 -1 3;
+0 10 -203904 -1 -1 11;
 #X text 215 126 fast;
 #X text 217 337 slow;
 #X text 54 173 vid;
-#N canvas 1 561 145 185 plylst 0;
+#N canvas 1 582 145 185 plylst 1;
 #X obj 47 28 bng 50 250 50 0 empty empty bang_playlist -16 -10 0 10
 -45076 -1 -1;
 #X obj 48 91 f;
@@ -108,30 +108,29 @@ scanspeed-set 29 \; SustTime_set 200 \;;
 #X connect 14 0 10 0;
 #X connect 14 1 10 3;
 #X restore 371 148 pd PreSet;
-#N canvas 1 225 547 491 ADVANCED 0;
-#X obj 142 161 vradio 25 1 0 4 Gmode GmodeGUI Gray_Mode -2 -8 0 10
+#N canvas 1 230 547 491 ADVANCED 0;
+#X obj 140 174 vradio 25 1 0 4 Gmode GmodeGUI Gray_Mode -2 -8 0 10
 -99865 -1 -1 0;
-#X text 174 188 white_noise;
-#X text 174 214 phasor_groundtone;
-#X text 174 240 both;
+#X text 172 201 white_noise;
+#X text 172 253 both;
 #X obj 331 23 vradio 23 1 1 9 scale scale-set Escalas 0 -8 0 10 -257985
--1 -1 1;
+-1 -1 7;
 #X text 357 165 pentatonic M;
 #X text 356 211 2 octaves continuos;
 #X text 356 120 scale of perfect 4ths;
 #X text 357 95 26/2000Hz;
 #X text 357 189 just intonation (2 octaves);
-#X obj 141 20 tgl 50 0 invertH empty invert_Hue 55 7 0 10 -86277 -1
+#X obj 139 81 tgl 30 0 invertH empty invert_Hue 35 7 0 10 -86277 -1
 -1 0 1;
-#X obj 141 81 tgl 50 0 functVH empty Vol-Hue_function 55 7 0 10 -86853
--1 -1 0 1;
+#X obj 139 123 tgl 30 0 functVH empty Vol-Hue_function 35 7 0 10 -86853
+-1 -1 1 1;
 #X obj 144 361 hsl 100 15 0 880 0 0 f0 f0_init empty -2 -8 0 10 -260097
--1 -1 630 1;
+-1 -1 1830 1;
 #X floatatom 141 383 10 0 0 0 - - -, f 10;
 #X obj 251 362 bng 15 250 50 1 reset_f0 empty reset_f0 17 7 0 10 -262144
 -1 -1;
 #X obj 143 419 hsl 101 15 0 1000 0 1 SustTime SustTime_set SustainTime
--2 -8 0 10 -261682 -1 -1 5000 1;
+-2 -8 0 10 -261682 -1 -1 7200 1;
 #X floatatom 140 440 10 0 0 0 - - -, f 10;
 #X obj 256 419 tgl 15 0 SustOnOff SustOnOff_init Hold 0 -10 0 10 -261682
 -1 -1 0 1;
@@ -157,24 +156,32 @@ scanspeed-set 29 \; SustTime_set 200 \;;
 -1 -1 0 1;
 #N canvas 0 50 450 300 (subpatch) 0;
 #X array View-H 45 float 3;
-#A 0 0 0 0 0.916667 0.916667 0 0 0.666667 0 0 0 0 0 0 0 0 0 0 0.0294118
-0.0416667 0.015873 0.987179 0.0151515 0.0208333 0.00980392 0.0357143
-0.0416667 0 0 0.0555556 0.047619 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#A 0 0.283797 0.276183 0.277224 0.279114 0.276117 0.324505 0.354311
+0.352935 0.352935 0.352935 0.349437 0.0346933 0.022263 0.0234535 0.0234535
+0.0187217 0.0373188 0.143755 0.150553 0.150601 0.150601 0.144973 0.197835
+0.283691 0.277224 0.277224 0.276167 0.279173 0.322347 0.353823 0.352935
+0.352935 0.354011 0.352176 0.0326533 0.0234535 0.0234535 0.0234535
+0.0245051 0.0355114 0.147738 0.14972 0.150601 0.152837 0.14196;
 #X coords 0 1 45 0 150 60 1 0 0;
 #X restore 330 250 graph;
 #N canvas 0 50 450 300 (subpatch) 0;
 #X array View-S 45 float 3;
-#A 0 0 0 0.5 0.666667 0.4 0 0 0.333333 0 0 0 0 0 0 0 0 0 0 0.68 0.689655
-0.583333 0.52 0.55 0.64 0.68 0.823529 0.571429 0.5 0 0.461538 0.35
-0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#A 0 0.539768 0.533063 0.535601 0.537944 0.544746 0.461567 0.431259
+0.425931 0.425931 0.425931 0.433081 0.380309 0.46347 0.454791 0.454791
+0.457733 0.446617 0.457278 0.4632 0.462528 0.462528 0.472426 0.436812
+0.545639 0.535601 0.535601 0.536012 0.532005 0.473033 0.433982 0.425931
+0.425931 0.419775 0.450525 0.404764 0.454791 0.454791 0.454791 0.456905
+0.453548 0.464939 0.460524 0.462528 0.464413 0.458404;
 #X coords 0 1 45 0 150 60 1 0 0;
 #X restore 330 328 graph;
 #N canvas 0 50 450 300 (subpatch) 0;
 #X array View-V 45 float 3;
-#A 0 0 0 0.00784314 0.0117647 0.0196078 0.00392157 0.00392157 0.0117647
-0.0196078 0.00392157 0 0 0 0 0 0 0 0 0.0980392 0.113725 0.141176 0.0980392
-0.0784314 0.0980392 0.0980392 0.0666667 0.027451 0.0156863 0 0.0509804
-0.0784314 0 0 0 0 0 0 0 0 0 0 0 0 0 0;
+#A 0 0.943204 0.932663 0.938663 0.940404 0.932366 0.769858 0.670119
+0.667683 0.667683 0.667683 0.668527 0.443761 0.437938 0.435944 0.435944
+0.445051 0.452846 0.676395 0.678817 0.68235 0.68235 0.687155 0.758986
+0.943052 0.938663 0.938663 0.932587 0.940558 0.777352 0.677351 0.667683
+0.667683 0.664217 0.679944 0.443212 0.435944 0.435944 0.435944 0.434638
+0.462129 0.67463 0.678919 0.68235 0.684358 0.689758;
 #X coords 0 1 45 0 150 60 1 0 0;
 #X restore 330 406 graph;
 #X obj 489 250 tgl 30 0 view_tableHSV empty view_tables -32 -10 0 10
@@ -284,13 +291,18 @@ types of mask;
 #X floatatom 18 169 5 0 0 0 - - -, f 5;
 #X text 15 153 set scantime;
 #X obj 18 186 s scanspeed-set;
-#X connect 12 0 13 0;
-#X connect 15 0 16 0;
-#X connect 40 0 12 0;
-#X connect 41 0 40 0;
-#X connect 48 0 50 0;
+#X obj 139 11 vradio 30 1 0 2 ColorMode empty empty 0 -8 0 10 -262144
+-1 -1 1;
+#X text 175 19 HSV;
+#X text 176 48 LCH;
+#X text 172 227 groundtone;
+#X connect 11 0 12 0;
+#X connect 14 0 15 0;
+#X connect 39 0 11 0;
+#X connect 40 0 39 0;
+#X connect 47 0 49 0;
 #X restore 371 94 pd ADVANCED;
-#N canvas 543 567 265 200 STUFF 0;
+#N canvas 540 567 265 200 STUFF 1;
 #N canvas 30 166 858 495 mostralinha 0;
 #X obj 166 -193 gemhead;
 #X obj 127 233 translateXYZ 0 0 1;
@@ -408,7 +420,7 @@ types of mask;
 #X connect 12 0 0 0;
 #X connect 13 0 12 0;
 #X restore 16 12 pd WINDOW;
-#N canvas 401 152 450 300 EXT_CTRL 0;
+#N canvas 399 158 396 295 EXT_CTRL 0;
 #X obj 188 145 s state;
 #X obj 188 122 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
@@ -445,7 +457,7 @@ types of mask;
 #X connect 5 0 7 0;
 #X connect 5 0 9 0;
 #X restore 17 75 pd EXT_CTRL;
-#N canvas 288 184 331 367 INIT 1;
+#N canvas 282 187 331 367 INIT 0;
 #X obj 17 3 loadbang;
 #X obj 22 263 r reset_f0;
 #X obj 23 332 s f0_init;
@@ -456,13 +468,13 @@ types of mask;
 1 \; play_mov 0 \; end_line 1 \; img2load open ./images/nxerainbowlines2.jpg
 \; viewMode 0 \; color_shift-r 0.015 \; scango-set 1 \; stateGUI 1
 \; f0-set 33.3 \; scale-set 1 \; VoiceType-set 0 \; scanspeed-set 3
-\;;
+\; setKinectGain 4 \;;
 #X connect 0 0 6 0;
 #X connect 1 0 5 0;
 #X connect 3 0 4 0;
 #X connect 5 0 2 0;
 #X restore 17 130 pd INIT;
-#N canvas 18 94 896 653 VIDEO_MAIN 0;
+#N canvas 435 114 896 653 VIDEO_MAIN 0;
 #X obj 97 493 pix_texture;
 #X obj 284 445 until;
 #X obj 284 469 f;
@@ -473,31 +485,31 @@ types of mask;
 0;
 #X text 471 19 start / stop;
 #X obj 495 40 tgl 30 0 empty startstop empty 17 7 0 10 -4034 -1 -1
-1 1;
+0 1;
 #X text 535 624 sends signal of end line;
 #X obj 45 114 pix_buffer_write frame;
 #X msg 188 78 1;
 #X obj 350 46 pix_buffer frame 2;
 #X obj 45 215 pix_texture;
 #X floatatom 142 233 5 0 0 0 - - -, f 5;
-#X obj 567 151 r end_line;
-#X obj 784 245 s NewFrame;
+#X obj 567 131 r end_line;
+#X obj 812 221 s NewFrame;
 #X obj 676 47 r NewFrame;
-#X obj 567 176 spigot;
-#X obj 562 440 s posi;
+#X obj 567 156 spigot;
+#X obj 586 422 s posi;
 #X text 360 522 pix-group number;
 #X obj 97 521 translateXYZ 0 -1.8 0;
 #X obj 97 547 rectangle 2.4 1.8;
 #X obj 45 255 translateXYZ 0 2 0;
 #X obj 646 472 r scanspeed;
-#N canvas 259 218 450 300 video_info 0;
+#N canvas 257 219 450 300 video_info 0;
 #X obj 59 40 inlet;
 #X obj 64 113 pix_info --------------;
-#X obj 52 214 s info_width;
-#X obj 69 240 s info_height;
-#X obj 192 190 s info_bytes;
-#X obj 225 215 s info_colorspace;
-#X obj 31 260 outlet;
+#X obj 83 234 s info_width;
+#X obj 102 210 s info_height;
+#X obj 121 190 s info_bytes;
+#X obj 141 165 s info_colorspace;
+#X obj 64 260 outlet;
 #X obj 166 288 s steps_init;
 #X connect 0 0 1 0;
 #X connect 1 0 6 0;
@@ -508,10 +520,10 @@ types of mask;
 #X restore 45 82 pd video_info;
 #X obj 539 547 delay 0.5;
 #X obj 635 566 + 0.5;
-#X obj 474 207 r reset_scan;
+#X obj 474 187 r reset_scan;
 #X obj 284 604 send pix_groupN;
 #X obj 647 502 pow 1.5;
-#N canvas 101 102 897 597 framesIN 0;
+#N canvas 97 170 897 597 framesIN 0;
 #X obj 251 575 outlet;
 #X obj 218 71 gemhead;
 #X obj 210 186 cnv 15 80 30 empty empty empty 20 12 0 14 -24198 -66577
@@ -917,110 +929,25 @@ types of mask;
 #X obj 283 338 r posi;
 #X msg 283 368 bang;
 #X obj 539 483 r pix_groupN;
-#N canvas 253 79 685 617 readPixels 0;
-#X obj 44 193 pix_data;
-#X text 116 189 GETS PIXELS VALUES FROM FRAME;
-#X obj 32 480 send HSV3plet;
-#X obj -31 411 loadbang;
-#X obj 154 152 expr 1 - $f1/$f2;
-#X obj 247 100 r steps;
-#X obj 247 125 - 1;
-#X obj 59 41 r imgResized;
-#X obj 169 81 r posi;
-#X obj 44 -82 r pix_groupN;
-#X obj 169 340 print checkPixData;
-#X obj 219 316 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
-1;
-#X obj 164 317 spigot;
-#X msg -28 438 0 0 0;
-#X obj 346 338 unpack f f f;
-#X floatatom 300 420 5 0 0 0 - - -, f 5;
-#X floatatom 300 463 10 0 0 0 - - -, f 10;
-#X obj 301 385 tabwrite View-H;
-#X obj 524 387 tabwrite View-V;
-#X obj 414 388 tabwrite View-S;
-#X obj 300 441 tabread View-H;
-#X obj 346 277 spigot;
-#X obj 379 248 tgl 15 0 empty view_tableHSV view_tableHSV 17 7 0 10
--262144 -1 -1 0 1;
-#X obj 154 110 f;
-#X obj 44 -6 t b f b;
-#X obj 171 -66 r pix_groupN-Vert;
-#X msg 160 40 0.5;
-#X obj 68 256 rgb2Y;
-#X obj 51 423 mux 1 2;
-#X obj 117 390 tgl 15 0 empty empty switch_HSV_HCY 17 7 0 10 -262144
--1 -1 0 1;
-#X obj 137 271 rgb2hsv;
-#X obj 171 -33 t b b f;
-#X obj 402 23 print;
-#X obj 406 -8 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 472 330 r pix_groupN;
-#X obj 352 210 r HSV3plet;
-#X obj 198 21 / 44;
-#X obj 66 87 / 44;
-#X connect 0 1 27 0;
-#X connect 0 1 30 0;
-#X connect 3 0 13 0;
-#X connect 4 0 0 3;
-#X connect 5 0 6 0;
-#X connect 6 0 4 1;
-#X connect 7 0 0 1;
-#X connect 8 0 23 1;
-#X connect 9 0 24 0;
-#X connect 11 0 12 1;
-#X connect 12 0 10 0;
-#X connect 13 0 2 0;
-#X connect 14 0 17 0;
-#X connect 14 1 19 0;
-#X connect 14 2 18 0;
-#X connect 15 0 20 0;
-#X connect 20 0 16 0;
-#X connect 21 0 14 0;
-#X connect 22 0 21 1;
-#X connect 23 0 4 0;
-#X connect 24 0 0 0;
-#X connect 24 1 37 0;
-#X connect 24 2 23 0;
-#X connect 25 0 31 0;
-#X connect 26 0 0 2;
-#X connect 27 0 28 1;
-#X connect 28 0 2 0;
-#X connect 29 0 28 2;
-#X connect 30 0 12 0;
-#X connect 30 0 27 1;
-#X connect 30 0 28 0;
-#X connect 31 0 0 0;
-#X connect 31 1 26 0;
-#X connect 31 2 36 0;
-#X connect 33 0 32 0;
-#X connect 34 0 18 1;
-#X connect 34 0 19 1;
-#X connect 34 0 17 1;
-#X connect 35 0 21 0;
-#X connect 36 0 0 3;
-#X connect 37 0 0 2;
-#X restore 98 583 pd readPixels;
-#X obj 613 93 t f f;
+#X obj 495 77 t f f;
 #X obj 19 409 loadbang;
 #X msg 18 430 quality 0;
-#X msg 455 134 \; NewFrame \$1 \; end_line bang \;;
+#X msg 455 114 \; NewFrame \$1 \; end_line bang \;;
 #X floatatom 714 563 5 0 0 0 - - -, f 5;
-#X obj 734 307 timer;
-#X floatatom 741 330 10 0 0 0 - - -, f 10;
-#X obj 731 286 b;
-#X obj 766 281 b;
-#X obj 740 349 s FrameScanTime;
+#X obj 762 283 timer;
+#X floatatom 769 306 10 0 0 0 - - -, f 10;
+#X obj 759 262 b;
+#X obj 794 257 b;
+#X obj 768 325 s FrameScanTime;
 #X msg 539 581 \; end_line bang \; NewFrame 1 \;;
-#X obj 566 339 demux;
-#X obj 614 338 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+#X obj 586 330 demux;
+#X obj 613 311 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 329 573 send pix_groupN-Vert;
 #X obj 308 496 send pix_groupFULL;
-#X obj 612 291 r scango;
-#X obj 576 416 f;
-#X obj 592 378 b, f 2;
+#X obj 613 269 r scango;
+#X obj 600 398 f;
+#X obj 613 369 b, f 2;
 #X msg 68 186 quality \$1;
 #X obj 68 165 tgl 15 0 empty empty empty 0 -6 0 8 -262144 -1 -1 0 1
 ;
@@ -1046,123 +973,217 @@ types of mask;
 #X obj 264 178 == 1;
 #X obj 263 210 * 1.42;
 #X msg 676 79 \; bufWrite 1 \; bufRead 1 \;;
-#X text 714 261 Ligar se der problemas;
+#X text 742 237 Ligar se der problemas;
 #X floatatom 139 52 5 0 0 0 - - -, f 5;
-#X obj 658 375 r man_scan;
-#X obj 644 409 * 1;
-#X obj 694 401 r steps;
-#X obj 612 313 == 0;
+#X obj 682 315 r man_scan;
+#X obj 668 349 * 1;
+#X obj 718 341 r steps;
+#X obj 613 291 == 0;
 #X msg 283 395 45;
 #X obj 284 521 moses 45;
 #X obj 329 548 - 45;
 #X obj 539 513 sel 44;
-#X text 311 395 triggers 45 pix-groups scan \; in each horizontal line
+#X text 312 388 triggers 45 pix-groups scan \; in each horizontal line
 \,;
-#X obj 552 252 f;
-#X obj 579 252 + 1;
-#X obj 547 280 sel 479;
-#X msg 512 253 0;
+#X obj 552 232 f;
+#X obj 579 232 + 1;
+#X obj 547 260 sel 479;
+#X msg 512 233 0;
 #X obj 375 217 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj 364 270 print brrr;
 #X obj 373 247 repeat 5;
 #X obj 476 345 print;
-#X text 698 219 triggers 480 lines scan;
-#X obj 766 199 counter 479;
-#X obj 635 190 r steps;
-#X obj 635 240 - 1;
-#X obj 634 216 t b f;
+#X text 726 195 triggers 480 lines scan;
+#X obj 794 175 counter 479;
+#X obj 635 170 r steps;
+#X obj 635 220 - 1;
+#X obj 634 196 t b f;
+#X obj 92 573 cnv 15 100 60 empty empty empty 20 12 0 14 -261234 -66577
+0;
+#N canvas 549 119 652 668 readPixels 0;
+#X obj 94 293 pix_data;
+#X text 166 289 GETS PIXELS VALUES FROM FRAME;
+#X obj 19 394 loadbang;
+#X obj 204 252 expr 1 - $f1/$f2;
+#X obj 297 200 r steps;
+#X obj 297 225 - 1;
+#X obj 109 141 r imgResized;
+#X obj 219 181 r posi;
+#X obj 94 18 r pix_groupN;
+#X msg 22 421 0 0 0;
+#X obj 312 471 unpack f f f;
+#X floatatom 471 350 5 0 0 0 - - -, f 5;
+#X floatatom 471 393 10 0 0 0 - - -, f 10;
+#X obj 267 518 tabwrite View-H;
+#X obj 490 520 tabwrite View-V;
+#X obj 380 521 tabwrite View-S;
+#X obj 471 371 tabread View-H;
+#X obj 312 410 spigot;
+#X obj 345 381 tgl 15 0 empty view_tableHSV view_tableHSV 17 7 0 10
+-262144 -1 -1 0 1;
+#X obj 204 210 f;
+#X obj 94 94 t b f b;
+#X obj 221 34 r pix_groupN-Vert;
+#X msg 210 140 0.5;
+#X obj 107 411 rgb2hsv;
+#X obj 221 67 t b b f;
+#X obj 452 123 print;
+#X obj 456 92 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 448 438 r pix_groupN;
+#X obj 248 121 / 44;
+#X obj 116 187 / 44;
+#X obj 107 610 s COLOR3plet;
+#X obj 163 411 rgb2CIELch;
+#X obj 114 323 s RGB3plet;
+#X obj 114 348 r RGB3plet;
+#X obj 213 356 r ColorMode;
+#X text 344 33 ColorMode 0 normal HSV to Pitch/Timbre/Loudness \; ColorMode
+1 CIE-LCH;
+#X obj 114 380 demux . .;
+#X obj 14 486 send HSV3plet;
+#X obj 265 568 t b b;
+#X obj 265 590 timer;
+#X floatatom 265 611 12 0 0 0 - - -, f 12;
+#X obj 312 339 r COLOR3plet;
+#X obj 319 437 t l b;
+#X obj 434 477 f;
+#X connect 0 1 32 0;
+#X connect 2 0 9 0;
+#X connect 3 0 0 3;
+#X connect 4 0 5 0;
+#X connect 5 0 3 1;
+#X connect 6 0 0 1;
+#X connect 7 0 19 1;
+#X connect 8 0 20 0;
+#X connect 10 0 13 0;
+#X connect 10 1 15 0;
+#X connect 10 2 14 0;
+#X connect 11 0 16 0;
+#X connect 16 0 12 0;
+#X connect 17 0 42 0;
+#X connect 18 0 17 1;
+#X connect 19 0 3 0;
+#X connect 20 0 0 0;
+#X connect 20 1 29 0;
+#X connect 20 2 19 0;
+#X connect 21 0 24 0;
+#X connect 22 0 0 2;
+#X connect 23 0 30 0;
+#X connect 24 0 0 0;
+#X connect 24 1 22 0;
+#X connect 24 2 28 0;
+#X connect 26 0 25 0;
+#X connect 27 0 43 1;
+#X connect 28 0 0 3;
+#X connect 29 0 0 2;
+#X connect 31 0 30 0;
+#X connect 33 0 36 0;
+#X connect 34 0 36 1;
+#X connect 36 0 23 0;
+#X connect 36 1 31 0;
+#X connect 38 0 39 0;
+#X connect 38 1 39 1;
+#X connect 39 0 40 0;
+#X connect 41 0 17 0;
+#X connect 42 0 10 0;
+#X connect 42 1 43 0;
+#X connect 43 0 14 1;
+#X connect 43 0 15 1;
+#X connect 43 0 13 1;
+#X restore 94 591 pd readPixels;
 #X connect 0 0 21 0;
 #X connect 1 0 2 0;
 #X connect 2 0 4 0;
-#X connect 2 0 53 0;
-#X connect 2 0 88 0;
+#X connect 2 0 52 0;
+#X connect 2 0 87 0;
 #X connect 3 0 1 0;
 #X connect 3 1 5 0;
 #X connect 4 0 2 1;
 #X connect 5 0 2 1;
-#X connect 8 0 39 0;
+#X connect 8 0 38 0;
 #X connect 10 0 13 0;
 #X connect 11 0 10 1;
 #X connect 13 0 23 0;
 #X connect 14 0 23 2;
 #X connect 15 0 18 0;
-#X connect 17 0 80 0;
-#X connect 18 0 92 0;
+#X connect 17 0 79 0;
+#X connect 18 0 91 0;
 #X connect 21 0 22 0;
-#X connect 23 0 63 0;
+#X connect 23 0 62 0;
 #X connect 24 0 30 0;
-#X connect 24 0 68 0;
+#X connect 24 0 67 0;
 #X connect 25 0 10 0;
-#X connect 26 0 49 0;
+#X connect 26 0 48 0;
 #X connect 27 0 26 1;
-#X connect 28 0 95 0;
+#X connect 28 0 94 0;
 #X connect 30 0 27 0;
 #X connect 31 0 25 0;
 #X connect 32 0 10 1;
-#X connect 32 0 82 0;
-#X connect 33 0 70 0;
+#X connect 32 0 81 0;
+#X connect 33 0 69 0;
 #X connect 35 0 36 0;
-#X connect 36 0 87 0;
-#X connect 37 0 90 0;
-#X connect 39 0 42 0;
-#X connect 39 1 18 1;
-#X connect 40 0 41 0;
-#X connect 41 0 0 0;
-#X connect 43 0 27 0;
-#X connect 44 0 45 0;
-#X connect 45 0 48 0;
-#X connect 46 0 44 0;
-#X connect 47 0 44 1;
-#X connect 50 0 19 0;
-#X connect 50 0 55 1;
-#X connect 50 1 56 0;
-#X connect 51 0 50 1;
-#X connect 54 0 86 0;
-#X connect 55 0 19 0;
-#X connect 56 0 55 0;
-#X connect 57 0 13 0;
-#X connect 58 0 57 0;
+#X connect 36 0 86 0;
+#X connect 37 0 89 0;
+#X connect 38 0 41 0;
+#X connect 38 1 18 1;
+#X connect 39 0 40 0;
+#X connect 40 0 0 0;
+#X connect 42 0 27 0;
+#X connect 43 0 44 0;
+#X connect 44 0 47 0;
+#X connect 45 0 43 0;
+#X connect 46 0 43 1;
+#X connect 49 0 19 0;
+#X connect 49 0 54 1;
+#X connect 49 1 55 0;
+#X connect 50 0 49 1;
+#X connect 53 0 85 0;
+#X connect 54 0 19 0;
+#X connect 55 0 54 0;
+#X connect 56 0 13 0;
+#X connect 57 0 56 0;
+#X connect 58 0 59 0;
 #X connect 59 0 60 0;
 #X connect 60 0 61 0;
-#X connect 61 0 62 0;
-#X connect 64 0 63 1;
-#X connect 65 0 63 2;
-#X connect 66 0 67 0;
-#X connect 67 0 13 0;
-#X connect 69 0 30 0;
-#X connect 70 0 0 0;
-#X connect 71 0 72 0;
-#X connect 72 0 70 1;
-#X connect 73 0 77 0;
-#X connect 74 0 75 0;
-#X connect 75 0 14 0;
-#X connect 76 0 23 3;
-#X connect 77 0 74 0;
-#X connect 77 1 78 0;
-#X connect 78 0 79 0;
-#X connect 79 0 76 0;
-#X connect 83 0 84 0;
-#X connect 84 0 55 1;
-#X connect 85 0 84 1;
-#X connect 86 0 51 0;
-#X connect 87 0 3 0;
-#X connect 88 0 29 0;
-#X connect 88 1 89 0;
-#X connect 89 0 52 0;
-#X connect 90 0 26 0;
-#X connect 92 0 93 0;
-#X connect 92 0 94 0;
-#X connect 93 0 92 1;
-#X connect 94 0 95 0;
-#X connect 94 1 50 0;
-#X connect 95 0 92 0;
-#X connect 96 0 98 0;
-#X connect 98 0 97 0;
-#X connect 102 0 104 0;
-#X connect 103 0 94 1;
-#X connect 104 0 95 0;
-#X connect 104 1 103 0;
+#X connect 63 0 62 1;
+#X connect 64 0 62 2;
+#X connect 65 0 66 0;
+#X connect 66 0 13 0;
+#X connect 68 0 30 0;
+#X connect 69 0 0 0;
+#X connect 70 0 71 0;
+#X connect 71 0 69 1;
+#X connect 72 0 76 0;
+#X connect 73 0 74 0;
+#X connect 74 0 14 0;
+#X connect 75 0 23 3;
+#X connect 76 0 73 0;
+#X connect 76 1 77 0;
+#X connect 77 0 78 0;
+#X connect 78 0 75 0;
+#X connect 82 0 83 0;
+#X connect 83 0 54 1;
+#X connect 84 0 83 1;
+#X connect 85 0 50 0;
+#X connect 86 0 3 0;
+#X connect 87 0 29 0;
+#X connect 87 1 88 0;
+#X connect 88 0 51 0;
+#X connect 89 0 26 0;
+#X connect 91 0 92 0;
+#X connect 91 0 93 0;
+#X connect 92 0 91 1;
+#X connect 93 0 94 0;
+#X connect 93 1 49 0;
+#X connect 94 0 91 0;
+#X connect 95 0 97 0;
+#X connect 97 0 96 0;
+#X connect 101 0 103 0;
+#X connect 102 0 93 1;
+#X connect 103 0 94 0;
+#X connect 103 1 102 0;
 #X restore 18 167 pd VIDEO_MAIN;
 #N canvas 681 142 488 374 keyboard_ctrl 0;
 #X obj 4 -90 key;
@@ -1318,6 +1339,6 @@ is usefull to you please email mengucci@gmail.com;
 #X restore 370 258 pd Credits;
 #X text 54 201 kin;
 #X obj 84 211 hsl 100 15 6 100 0 0 HiT empty Kin-HiThres 16 8 0 10
--262144 -1 -1 2900 1;
+-262144 -1 -1 0 1;
 #X obj 81 232 nbx 5 14 -1e+37 1e+37 0 0 empty HiT_val HiThr_val 57
-8 0 10 -262144 -1 -1 1156.46 256;
+8 0 10 -262144 -1 -1 0 256;

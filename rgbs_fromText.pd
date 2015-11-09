@@ -1,0 +1,36 @@
+#N canvas 820 130 457 435 10;
+#X obj 158 205 textfile;
+#X obj 243 272 print done;
+#X msg 109 73 rewind;
+#X msg 169 142 read rgbs.txt cr;
+#X obj 155 291 s rgb3plet;
+#X obj 39 4 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 76 32 t b b b b;
+#X obj 348 183 timer;
+#X obj 222 242 t b b b;
+#X floatatom 360 250 12 0 0 0 - - -, f 12;
+#X text 410 211 min;
+#X msg 89 114 bang;
+#X obj 88 8 inlet;
+#X obj 221 342 s done;
+#X obj 38 139 r next;
+#X obj 360 214 / 60000;
+#X text 286 51 ler o ficheiro rgbs.txt \; clickar no |1( \; carregar
+no bang da conta;
+#X connect 0 0 4 0;
+#X connect 0 1 8 0;
+#X connect 2 0 0 0;
+#X connect 5 0 6 0;
+#X connect 6 0 11 0;
+#X connect 6 1 2 0;
+#X connect 6 2 3 0;
+#X connect 6 3 7 0;
+#X connect 7 0 15 0;
+#X connect 8 0 13 0;
+#X connect 8 1 1 0;
+#X connect 8 2 7 1;
+#X connect 11 0 0 0;
+#X connect 12 0 6 0;
+#X connect 14 0 0 0;
+#X connect 15 0 9 0;
