@@ -1,0 +1,10 @@
+#N canvas 333 333 450 300 10;
+#X obj 170 161 bl-saw.mmb~;
+#X obj 151 247 dac~;
+#X obj 170 184 *~ 0.5;
+#X floatatom 170 93 5 0 0 0 - - -;
+#X obj 220 118 sig~;
+#X connect 0 0 2 0;
+#X connect 2 0 1 0;
+#X connect 2 0 1 1;
+#X connect 3 0 0 0;

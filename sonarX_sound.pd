@@ -1,27 +1,18 @@
-#N canvas 272 180 780 474 10;
-#X obj 12 411 import mrpeach;
+#N canvas 12 210 780 492 10;
 #X obj 328 39 sounds;
-#N canvas 704 128 639 417 recOSC 0;
-#X obj 4 43 unpackOSC;
-#X obj 4 5 udpreceive 9998;
-#X obj 29 203 makefilename Synth_%d;
-#X obj 6 172 pack 0 0 0;
-#X obj 10 223 send;
-#X obj 6 138 unpack f f f f;
-#X obj 116 387 s scalaH;
-#X obj 113 252 vradio 15 1 0 9 empty empty empty 0 -8 0 10 -262144
--1 -1 1;
-#X text 134 264 octave 12 notes (cromatic);
-#X text 110 232 scale to output H values;
-#X text 131 248 octave digital continuous;
-#X obj 195 202 s 0cross;
-#X obj 202 171 s save_sound;
-#X obj 265 211 s tikOnOff;
-#X text 144 368 2 octaves continuos (36/60);
-#X obj 109 154 s state;
-#X obj 156 177 s f0;
-#X obj 291 185 s Gmode;
-#X obj 348 224 s SustOnOff;
+#N canvas 534 81 831 510 recOSC 0;
+#X obj 82 483 makefilename Synth_%d;
+#X obj 59 452 pack 0 0 0;
+#X obj 63 503 send;
+#X obj 59 418 unpack f f f f;
+#X obj 98 356 s scalaH;
+#X obj 137 282 s 0cross;
+#X obj 156 251 s save_sound;
+#X obj 176 221 s tikOnOff;
+#X obj 78 384 s state;
+#X obj 117 329 s f0;
+#X obj 195 195 s Gmode;
+#X obj 215 172 s SustOnOff;
 #X obj 358 197 s SustTime;
 #X obj 442 224 s ref_scale;
 #X obj 450 199 s c_line;
@@ -31,68 +22,70 @@
 -1;
 #X obj 459 76 print ++++++++;
 #X obj 463 47 repeat 10;
-#X obj -15 305 print check;
+#X obj 183 344 print check;
 #X obj 441 156 s V;
 #X obj 460 266 s color_shift_set;
 #X obj 475 155 s VoiceType-set;
-#X obj 59 70 routeOSC /Synth /State /Scale /f0 /0cross /save_sound
+#X obj 455 116 s startstop;
+#X obj 4 43 mrpeach/unpackOSC;
+#X obj 4 5 mrpeach/udpreceive 9998;
+#X obj 59 70 mrpeach/routeOSC /Synth /State /Scale /f0 /0cross /save_sound
 /tikOnOff /Gmode /SustOnOff /SustTime /RefScale /c_line /invertH /functVH
 /color_shift-set /MainVol /VoiceType-set /startstop;
-#X obj 455 116 s startstop;
-#X connect 0 0 31 0;
-#X connect 1 0 0 0;
-#X connect 2 0 4 1;
-#X connect 3 0 4 0;
-#X connect 5 0 3 0;
-#X connect 5 1 3 1;
-#X connect 5 2 3 2;
-#X connect 5 3 2 0;
-#X connect 7 0 6 0;
-#X connect 24 0 26 0;
+#X connect 0 0 2 1;
+#X connect 1 0 2 0;
+#X connect 3 0 1 0;
+#X connect 3 1 1 1;
+#X connect 3 2 1 2;
+#X connect 3 3 0 0;
+#X connect 17 0 19 0;
+#X connect 19 0 18 0;
+#X connect 25 0 27 0;
 #X connect 26 0 25 0;
-#X connect 31 0 5 0;
-#X connect 31 1 15 0;
-#X connect 31 2 7 0;
-#X connect 31 3 16 0;
-#X connect 31 4 11 0;
-#X connect 31 5 12 0;
-#X connect 31 6 13 0;
-#X connect 31 7 17 0;
-#X connect 31 8 18 0;
-#X connect 31 9 19 0;
-#X connect 31 10 20 0;
-#X connect 31 11 21 0;
-#X connect 31 12 23 0;
-#X connect 31 13 22 0;
-#X connect 31 14 29 0;
-#X connect 31 15 28 0;
-#X connect 31 16 30 0;
-#X connect 31 17 32 0;
+#X connect 27 0 3 0;
+#X connect 27 1 8 0;
+#X connect 27 2 4 0;
+#X connect 27 3 9 0;
+#X connect 27 3 20 0;
+#X connect 27 4 5 0;
+#X connect 27 5 6 0;
+#X connect 27 6 7 0;
+#X connect 27 7 10 0;
+#X connect 27 8 11 0;
+#X connect 27 9 12 0;
+#X connect 27 10 13 0;
+#X connect 27 11 14 0;
+#X connect 27 12 16 0;
+#X connect 27 13 15 0;
+#X connect 27 14 22 0;
+#X connect 27 15 21 0;
+#X connect 27 16 23 0;
+#X connect 27 17 24 0;
 #X restore 327 84 pd recOSC;
 #X obj 14 13 cnv 15 300 150 empty empty empty 20 12 0 14 -204786 -66577
 0;
 #X obj 27 31 vsl 20 120 0 1 0 1 V empty volume 0 -9 0 10 -262144 -1
--1 0 1;
-#X obj 175 84 tgl 20 0 functVH functVH-set Apply_VH_filter -5 27 0
-10 -86853 -1 -1 0 1;
-#X obj 174 122 tgl 20 0 invertHue invertH-set invert_mapping -5 30
-0 10 -86277 -1 -1 0 1;
-#X obj 175 57 bng 20 250 50 0 reset_fVH empty empty 17 7 0 10 -257985
+-1 11900 1;
+#X obj 220 79 tgl 20 0 functVH functVH-set Apply_VH_filter -5 27 0
+10 -86853 -1 -1 1 1;
+#X obj 219 117 tgl 20 0 invertHue invertH-set invert_mapping -5 30
+0 10 -86277 -1 -1 1 1;
+#X obj 220 52 bng 20 250 50 0 reset_fVH empty empty 17 7 0 10 -257985
 -1 -1;
 #X obj 13 370 hsl 373 15 0 1 0 0 color_shift color_shift_set color_shift
 -2 25 0 10 -162280 -1 -1 2306 1;
-#X obj 175 29 bng 20 250 50 0 set_fVH_linear empty empty 17 7 0 10
+#X obj 220 24 bng 20 250 50 0 set_fVH_linear empty empty 17 7 0 10
 -260097 -1 -1;
-#X text 199 29 set fVH const;
+#X text 244 24 set fVH const;
 #X obj 398 287 cnv 15 370 170 empty empty delay 20 12 0 14 -204786
 -66577 0;
 #X obj 650 405 line~;
 #X obj 650 384 pack 0 5;
 #X obj 651 427 s~ delaytime;
-#X floatatom 650 364 5 0 0 0 - - -, f 5;
+#X floatatom 650 364 5 0 0 0 - - -;
 #X obj 548 406 line~;
 #X obj 548 386 pack 0 5;
-#X floatatom 548 366 5 0 0 0 - - -, f 5;
+#X floatatom 548 366 5 0 0 0 - - -;
 #X obj 547 426 s~ delayfeedback;
 #X obj 460 295 vsl 15 60 0 1 0 0 empty empty empty 0 -9 0 10 -258113
 -1 -1 0 1;
@@ -108,21 +101,21 @@
 #X text 404 135 level \, dB;
 #X text 642 133 liveness \, 0-100;
 #X obj 417 158 vsl 15 60 0 100 0 1 empty empty empty 0 -9 0 10 -4032
--1 -1 2400 1;
+-1 -1 5900 1;
 #X obj 417 249 s revLev;
 #X floatatom 417 228 0 0 100 0 - - -;
 #X obj 680 155 vsl 15 60 0 100 0 1 empty empty empty 0 -9 0 10 -257985
--1 -1 1200 1;
+-1 -1 4800 1;
 #X floatatom 680 223 0 0 100 0 - - -;
 #X obj 680 246 s revLiv;
 #X obj 485 214 mtof;
-#X floatatom 485 236 8 0 0 0 - - -, f 8;
-#X obj 485 143 vsl 15 60 0 186 0 1 empty empty empty 0 -9 0 10 -99865
--1 -1 2400 1;
+#X floatatom 485 236 8 0 0 0 - - -;
+#X obj 485 143 vsl 15 60 0 127 0 1 empty empty empty 0 -9 0 10 -99865
+-1 -1 5900 1;
 #X obj 485 259 s revCrossOf;
 #X text 579 132 dumping;
 #X obj 582 154 vsl 15 60 0 100 0 1 empty empty empty 0 -9 0 10 -4034
--1 -1 2400 1;
+-1 -1 3600 1;
 #X floatatom 582 224 0 0 100 0 - - -;
 #X obj 582 246 s revDump;
 #X text 479 119 +over freq \, Hz;
@@ -148,24 +141,24 @@ hue;
 #X obj 115 65 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X obj 115 93 sel 0 1;
-#X floatatom 4 200 12 0 0 0 - - -, f 12;
+#X floatatom 4 200 12 0 0 0 - - -;
 #X obj 41 13 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
 -1;
 #X obj 115 253 / 8;
-#X floatatom 185 200 5 0 0 3 bar_partition - -, f 5;
+#X floatatom 185 200 5 0 0 3 bar_partition - -;
 #X obj 115 334 / 24;
-#X floatatom 182 381 12 0 0 0 - - -, f 12;
+#X floatatom 182 381 12 0 0 0 - - -;
 #X obj 88 383 metro;
 #X obj 85 491 midiout;
 #X msg 88 416 248;
 #X obj 68 355 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
 1;
 #X text 109 -31 midi clock;
-#X floatatom 220 122 5 0 0 0 - - -, f 5;
+#X floatatom 220 122 5 0 0 0 - - -;
 #X obj 352 -6 vsl 30 300 40 180 0 0 empty empty empty 0 -9 0 10 -262144
 -1 -1 0 1;
 #X obj 295 318 expr 60000/$f1;
-#X floatatom 267 267 5 0 0 0 BPM - -, f 5;
+#X floatatom 267 267 5 0 0 0 BPM - -;
 #X obj 189 5 r 0XSample;
 #X msg 134 417 250;
 #X msg 160 444 252;
@@ -222,11 +215,11 @@ hue;
 #X obj 479 5 cnv 15 190 100 empty empty empty 20 12 0 14 -204786 -66577
 0;
 #X obj 225 441 s fourthSHift;
-#X floatatom 319 424 5 0 0 0 - - -, f 5;
+#X floatatom 319 424 5 0 0 0 - - -;
 #X obj 319 441 s ScaleSize;
 #X obj 226 399 r f0;
 #X obj 225 420 ftom;
-#X floatatom 460 363 5 0 0 0 - - -, f 5;
+#X floatatom 460 363 5 0 0 0 - - -;
 #X obj 507 30 hsl 60 10 0 1 0 1 comp-ratio empty ratio -2 -7 0 10 -101452
 -262144 -355 4592 1;
 #X obj 507 53 hsl 60 10 0 1 0 1 comp-attack empty attack -2 -7 0 10
@@ -283,42 +276,51 @@ hue;
 0.457108 0.457108 0.457108;
 #X coords 0 2 255 0 379 140 1 0 0;
 #X restore 9 185 graph;
-#X text 201 59 Reset fVH;
+#X text 246 54 Reset fVH;
 #X obj 61 75 s VoiceType;
-#X obj 61 33 hradio 30 1 0 3 empty VoiceType-set empty 0 -8 0 10 -86853
--262144 -1 2;
+#X obj 61 33 hradio 30 1 0 5 empty VoiceType-set empty 0 -8 0 10 -86853
+-262144 -1 3;
 #X obj 115 405 cnv 15 97 38 empty empty empty 20 12 0 14 -128992 -228856
 0;
 #X obj 117 423 s WhiteTreshold;
-#X floatatom 117 407 12 0 0 0 - - -, f 12;
+#X floatatom 117 407 12 0 0 0 - - -;
 #N canvas 854 153 450 300 help 0;
 #X text 18 8 play_sonarX: gets HSV triplets from SonarX and plays the
 corresponding oscillators \, while the f0 is the "gray" ground tone
 ;
 #X restore 328 15 pd help;
-#X connect 12 0 14 0;
-#X connect 13 0 12 0;
-#X connect 15 0 13 0;
-#X connect 16 0 19 0;
+#X obj 390 50 s FM-ModFreq;
+#X floatatom 392 20 5 0 0 0 - - -;
+#N canvas 1 81 450 300 INIT 0;
+#X obj 131 59 loadbang;
+#X msg 131 82 \; VoiceType-set 3 \; scalaH 10 \; SustOnOff 1 \; Gmode
+1 \; functVH-set 1 \; invertH-set 1 \; f0 110 \;;
+#X connect 0 0 1 0;
+#X restore 327 109 pd INIT;
+#X connect 11 0 13 0;
+#X connect 12 0 11 0;
+#X connect 14 0 12 0;
+#X connect 15 0 18 0;
+#X connect 16 0 15 0;
 #X connect 17 0 16 0;
-#X connect 18 0 17 0;
-#X connect 20 0 53 0;
-#X connect 21 0 18 0;
-#X connect 22 0 24 0;
-#X connect 23 0 22 0;
-#X connect 25 0 15 0;
-#X connect 29 0 31 0;
-#X connect 31 0 30 0;
+#X connect 19 0 52 0;
+#X connect 20 0 17 0;
+#X connect 21 0 23 0;
+#X connect 22 0 21 0;
+#X connect 24 0 14 0;
+#X connect 28 0 30 0;
+#X connect 30 0 29 0;
+#X connect 31 0 32 0;
 #X connect 32 0 33 0;
-#X connect 33 0 34 0;
-#X connect 35 0 36 0;
-#X connect 36 0 38 0;
-#X connect 37 0 35 0;
+#X connect 34 0 35 0;
+#X connect 35 0 37 0;
+#X connect 36 0 34 0;
+#X connect 39 0 40 0;
 #X connect 40 0 41 0;
-#X connect 41 0 42 0;
-#X connect 49 0 50 0;
-#X connect 51 0 52 0;
-#X connect 52 0 48 0;
-#X connect 53 0 23 0;
-#X connect 68 0 67 0;
-#X connect 71 0 70 0;
+#X connect 48 0 49 0;
+#X connect 50 0 51 0;
+#X connect 51 0 47 0;
+#X connect 52 0 22 0;
+#X connect 67 0 66 0;
+#X connect 70 0 69 0;
+#X connect 73 0 72 0;
